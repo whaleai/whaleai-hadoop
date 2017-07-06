@@ -28,6 +28,7 @@ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 ssh-add
+echo "ssh" > /etc/pdsh/rcmd_default
 ssh localhost
 sudo apt install -y libxml2-utils
 sudo apt install -y pdsh
