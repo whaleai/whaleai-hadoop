@@ -5,27 +5,39 @@
 # Date: 20170630
 # Path: /whaleai/whale-bigdata/init.sh
 # Organization: https://github.com/whaleai
+
 HADOOP_VERSION=3.0.0-alpha3
 HADOOP_HOME=/opt/hadoop-$HADOOP_VERSION
-source whaleai-config.sh
+
 install()
 {
-
-# sudo apt install -y ssh
-# ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-# cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-# chmod 0600 ~/.ssh/authorized_keys
-# ssh-add
-# ssh localhost
-# sudo apt install -y libxml2-utils
-# sudo apt install -y pdsh
+source whaleai-config.sh
+if [[ ! -f hadoop-$HADOOP_VERSION.tar.gz ]]; then
+  echo "本文件夹下不存在　hadoop-$HADOOP_VERSION.tar.gz
+3 秒后自动退出......"
+  sleep 3
+  exit 0
+fi
+if [[ ! -f HADOOP_HOME=/opt/hadoop-$HADOOP_VERSION ]]; then
+  #statements
+  echo "正在清理上次安装残余文件"
+  remove()
+fi
+sudo apt install -y ssh
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+ssh-add
+ssh localhost
+sudo apt install -y libxml2-utils
+sudo apt install -y pdsh
 
 # #解压
 echo "hadoop-$HADOOP_VERSION　伪分布式正在自动安装部署..."
 tar -zxf hadoop-$HADOOP_VERSION.tar.gz
 echo "hadoop-$HADOOP_VERSION　解压完成"
 sudo mv  hadoop-$HADOOP_VERSION /opt/
-#配置hadoop3的配置文件
+#配置hadoop的配置文件
 echo "export JAVA_HOME=$JAVA_HOME">>$HADOOP_HOME/etc/hadoop/hadoop-env.sh
 create_config --file core-site.xml
 put_config --file core-site.xml --property fs.defaultFS --value "hdfs://localhost:9000"
@@ -87,13 +99,13 @@ OPTIONS:
    -h, --help             Show this message.
 
 EXAMPLES:
-  hadoop3 install:
+  如何安装？hadoop3 install:
 
 		 . whaleai-hadoop3.sh -i　
 
 		 Or . install-hadoop3.sh --install
 
-  hadoop3 remove:
+  如何卸载？hadoop3 remove:
 
 		 . whaleai-hadoop3.sh -r
 
