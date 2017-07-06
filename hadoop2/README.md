@@ -1,14 +1,13 @@
-# whaleai.com
->## 提供Hadoop简化的部署方案　WhaleAI 专注人工智能/大数据　
-
-##  提供简化hadoop安装部署方式,自动化安装，安装过程中一路```yes```即可　
+# whaleai-hadoop  
+## WhaleAI 专注人工智能/大数据
+## 提供简化hadoop安装部署方式,自动化安装，安装过程中一路```yes```即可　
 
 ## ```. whaleai-hadoop2.sh -i　```
 
 ### This script installs Hadoop 2 with basic data, log, and pid directories.
 
 USAGE:  ```. whaleai-hadoop2.sh [options]```
-# whaleai.com ![](https://github.com/whaleai/whaleai-hadoop#fork-destination-box)
+
 
 OPTIONS:
 
