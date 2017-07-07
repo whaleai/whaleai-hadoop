@@ -5,7 +5,7 @@
 ## ```. whaleai-hadoop2.sh -i　```
 
 ### This script installs Hadoop 2 with basic data, log, and pid directories.
-
+已经支持的版本　hadoop-2.7.3 hadoop-2.8.0
 USAGE:  ```. whaleai-hadoop2.sh [options]```
 
 
