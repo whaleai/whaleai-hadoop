@@ -45,12 +45,12 @@ echo "hadoop-$HADOOP_VERSION　伪分布式正在自动安装部署..."
 tar -zxf hadoop-$HADOOP_VERSION.tar.gz
 echo "hadoop-$HADOOP_VERSION　>>解压完成"
 sudo mv  hadoop-$HADOOP_VERSION /opt/
-mkdir hadoop-$HADOOP_VERSION/data
+mkdir $HADOOP_VERSION/whaleai
 #配置hadoop3的配置文件
 echo "export JAVA_HOME=$JAVA_HOME">>$HADOOP_HOME/etc/hadoop/hadoop-env.sh
 create_config --file core-site.xml
 put_config --file core-site.xml --property fs.defaultFS --value "hdfs://localhost:9000"
-put_config --file core-site.xml --property hadoop.tmp.dir --value "hadoop-$HADOOP_VERSION/data"
+put_config --file core-site.xml --property hadoop.tmp.dir --value "HADOOP_VERSION/whaleai"
 
 create_config --file hdfs-site.xml
 put_config --file hdfs-site.xml --property dfs.replication --value "1"
@@ -103,7 +103,7 @@ echo "hadoop-$HADOOP_VERSION　卸载完成
 help()
 {
 cat << EOF
-
+已支持版本　hadoop-2.7.3 hadoop-2.8.0
 This script installs Hadoop 2 with basic data, log, and pid directories.
 
 USAGE:  whaleai-hadoop2.sh [options]
