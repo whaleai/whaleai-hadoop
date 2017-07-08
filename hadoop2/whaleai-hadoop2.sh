@@ -2,14 +2,14 @@
 # Author:wangxiaolei 王小雷
 # Blog: http://blog.csdn.net/dream_an
 # Github: https://github.com/wangxiaoleiai
-# Date: 20170630
-# Path: /whaleai/whale-bigdata/init.sh
+# Date: 201706
 # Organization: https://github.com/whaleai
 
 HADOOP_VERSION=2.7.3
 HADOOP_HOME=/opt/hadoop-$HADOOP_VERSION
 install()
 {
+begin_time=$(date +%s)
 source whaleai-config.sh
 
 if [[ ! -f hadoop-$HADOOP_VERSION.tar.gz ]]; then
@@ -50,7 +50,7 @@ mkdir $HADOOP_VERSION/whaleai
 echo "export JAVA_HOME=$JAVA_HOME">>$HADOOP_HOME/etc/hadoop/hadoop-env.sh
 create_config --file core-site.xml
 put_config --file core-site.xml --property fs.defaultFS --value "hdfs://localhost:9000"
-put_config --file core-site.xml --property hadoop.tmp.dir --value "HADOOP_VERSION/whaleai"
+put_config --file core-site.xml --property hadoop.tmp.dir --value "$HADOOP_HOME/whaleai"
 
 create_config --file hdfs-site.xml
 put_config --file hdfs-site.xml --property dfs.replication --value "1"
@@ -74,12 +74,16 @@ $HADOOP_HOME/sbin/start-dfs.sh
 $HADOOP_HOME/sbin/start-yarn.sh
 echo "hadoop-$HADOOP_VERSION　启动完成 "
 jps
-echo "hadoop-$HADOOP_VERSION　开启成功...服务已经启动..."
-echo "浏览器打开以下网址查看"
-echo "
->> NameNode - http://localhost:50070/"
-echo "
->> ResourceManager - http://localhost:8088/
+echo "hadoop-$HADOOP_VERSION　开启成功...服务已经启动...
+
+浏览器打开以下网址查看
+
+NameNode - http://localhost:50070/
+
+ResourceManager - http://localhost:8088/
+
+耗时 : $(($(date +%s) - $begin_time)) S
+
 "
 
 #
