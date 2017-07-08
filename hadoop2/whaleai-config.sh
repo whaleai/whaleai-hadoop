@@ -23,7 +23,7 @@ create_config()
 	           ;;
         esac
 
-python - <<END
+python2 - <<END
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 conf = Element('configuration')
@@ -58,7 +58,7 @@ put_config()
         esac
         done
 
-	python - <<END
+	python2 - <<END
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 from xml.etree.ElementTree import SubElement
