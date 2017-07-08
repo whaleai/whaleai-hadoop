@@ -2,8 +2,7 @@
 # Author:wangxiaolei 王小雷
 # Blog: http://blog.csdn.net/dream_an
 # Github: https://github.com/wangxiaoleiai
-# Date: 20170630
-# Path: /whaleai/whale-bigdata/init.sh
+# Date: 201706
 # Organization: https://github.com/whaleai
 
 installed=false
