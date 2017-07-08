@@ -7,7 +7,7 @@
 
 installed=false
   if [ -f /etc/profile.d/hadoop.sh ]; then
-      source /etc/profile.d/hadoop-$HadoopVersion=3.0.0.sh
+      source /etc/profile.d/hadoop-$HADOOP_VERSION.sh
       source $HADOOP_HOME/etc/hadoop/hadoop-env.sh
       installed=true
   fi
