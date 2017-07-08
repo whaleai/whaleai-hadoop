@@ -45,7 +45,7 @@ echo "hadoop-$HADOOP_VERSION　伪分布式正在自动安装部署..."
 tar -zxf hadoop-$HADOOP_VERSION.tar.gz
 echo "hadoop-$HADOOP_VERSION　>>解压完成"
 sudo mv  hadoop-$HADOOP_VERSION /opt/
-mkdir $HADOOP_VERSION/whaleai
+mkdir $HADOOP_HOME/whaleai
 #配置hadoop3的配置文件
 echo "export JAVA_HOME=$JAVA_HOME">>$HADOOP_HOME/etc/hadoop/hadoop-env.sh
 create_config --file core-site.xml

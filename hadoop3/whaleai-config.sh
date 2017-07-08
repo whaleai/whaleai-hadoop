@@ -7,7 +7,7 @@
 
 installed=false
   if [ -f /etc/profile.d/hadoop.sh ]; then
-      source /etc/profile.d/hadoop-$HadoopVersion=3.0.0.sh
+      source /etc/profile.d/hadoop-$HADOOP_VERSION.sh
       source $HADOOP_HOME/etc/hadoop/hadoop-env.sh
       installed=true
   fi
@@ -23,7 +23,7 @@ create_config()
 	           ;;
         esac
 
-python - <<END
+python2 - <<END
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 conf = Element('configuration')
@@ -58,7 +58,7 @@ put_config()
         esac
         done
 
-	python - <<END
+	python2 - <<END
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 from xml.etree.ElementTree import SubElement
